@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="viewport-fit=cover,width=device-width,initial-scale=1,user-scalable=0">
+    <meta name=description content="Paper PWA">
+    <title>PWA | Paper</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <!--[if IE]><link rel="icon" href="/favicon.ico"><![endif]-->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <!-- Web App Manifest 추가 -->
+    <link rel="manifest" href="/manifest.json">
+    <!-- iOS/iPadOS 웹 앱 지원 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Paper"> 
+    <!-- iOS/iPadOS 아이콘 -->
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <!-- iOS/iPadOS 색상 테마 -->
+    <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <!-- iOS/iPadOS 스플래시 이미지 -->
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="/splash/splash_828x1792.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+      href="/splash/splash_1242x2688.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+      href="/splash/splash_1125x2436.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+      href="/splash/splash_1242x2208.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="/splash/splash_750x1334.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="/splash/splash_2048x2732.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="/splash/splash_1668x2224.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="/splash/splash_640x1136.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="/splash/splash_1668x2388.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="/splash/splash_1536x2048.png"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <!-- 상단바 -->
+      <header role="banner">
+        <div class="title">
+          <h1 id="title">Paper</h1>
+        </div>
+        <div class="user-menu">
+          <span id="user_name"></span>
+        </div>
+      </header>
+      <!-- 알림 기능 제어 영역 -->
+      <section id="notification_control" class="control disabled">
+        <button
+          id="notification"
+          class="notification"
+          aria-label="Push control"
+        >알림 켜기</button>
+      </section>
+      <section id="job" class="job">
+        <!-- 백그라운드 동기화 작업 표시 영역 -->
+      </section>
+      <section id="post" class="post">
+        <!-- 게시물 표시 영역 -->
+      </section>
+      <!-- 게시물 로딩 뷰 -->
+      <section id="post_loading" class="post--loading">
+        <article class="loading">
+          <div class="title"></div>
+          <div class="content"></div>
+          <div class="content"></div>
+          <div class="content"></div>
+        </article>
+        <article class="loading">
+          <div class="title"></div>
+          <div class="content"></div>
+          <div class="content"></div>
+          <div class="content"></div>
+        </article>
+        <article class="loading">
+          <div class="title"></div>
+          <div class="content"></div>
+          <div class="content"></div>
+          <div class="content"></div>
+        </article>
+      </section>
+      <!-- 하단 영역 (게시물 작성 버튼 영역) -->
+      <footer>
+        <button
+          id="open_paper"
+          class="open-paper"
+          aria-label="Open Paper"
+        >
+          <span>+</span>
+        </button>
+      </footer>
+      <!-- 게시물 작성 모달 -->
+      <div id="paper" class="paper-modal hidden hide">
+        <div class="panel">
+          <div class="panel__header">
+            <input
+              id="paper_title"
+              type="text"
+              placeholder="제목"
+              spellcheck="false"
+            >
+          </div>
+          <div class="panel__content">
+            <textarea
+              id="paper_content"
+              placeholder="본문"
+              spellcheck="false"
+            ></textarea>
+          </div>
+          <div class="panel__file">
+            <input
+              id="paper_image"
+              type="file"
+              accept="image/gif,image/jpeg,image/png"
+            >
+            <label for="paper_image">
+              사진 추가
+              <div id="filename"></div>
+            </label>
+          </div>
+          <div class="panel__footer">
+            <div class="panel__footer__botton-wrap">
+              <button id="paper_close" class="secondary" aria-label="Close">
+                닫기
+              </button>
+            </div>
+            <div class="panel__footer__botton-wrap">
+              <button id="paper_submit" class="primary" aria-label="Save">
+                저장
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="alert" class="alert hidden">
+        <!-- 알림 메시지 -->
+      </div>
+      <!-- 오프라인 알림 영역 -->
+      <div id="offline_alert" class="offline-alert hidden">
+        현재 오프라인 상태입니다
+      </div>
+      <!-- 일반 로딩 영역 -->
+      <div id="loading" class="loading hidden hide">
+        <div class="indicator">
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <!-- 부록. 구형 브라우저 지원을 위한 폴리필 추가 -->
+    <script src="/js/axios.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/paper-store.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/index.js"></script>
+  </body>
+</html>

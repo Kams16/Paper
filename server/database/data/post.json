@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "author": "user",
+    "title": "오늘의 고양이",
+    "date": "2019-12-06",
+    "content": "오늘은 귀여운 고양이를 만났다.",
+    "image": "/upload/cat_1.jpg",
+    "favorite": [
+      "Kams"
+    ]
+  },
+  {
+    "id": 2,
+    "author": "user",
+    "title": "오늘의 고양이",
+    "date": "2019-12-07",
+    "content": "야옹~야옹~야옹",
+    "image": "/upload/cat_2.jpg",
+    "favorite": [
+      "Kams"
+    ]
+  },
+  {
+    "id": 1663295185276,
+    "author": "kams",
+    "title": "123",
+    "date": "2022-09-16",
+    "content": "123",
+    "image": null,
+    "favorite": [
+      "Kams",
+      "user",
+      "박성희"
+    ]
+  },
+  {
+    "id": 1664429581400,
+    "author": "Kams",
+    "title": "123",
+    "date": "2022-09-29",
+    "content": "ㅅㄷㄴㅅ",
+    "image": null,
+    "favorite": [
+      "Kams",
+      "user",
+      "kams",
+      "박성희"
+    ]
+  },
+  {
+    "id": 1664430799659,
+    "author": "Kams",
+    "title": "1234",
+    "date": "2022-09-29",
+    "content": "12341241234",
+    "image": null,
+    "favorite": [
+      "Kams",
+      "kams",
+      "user",
+      "박성희"
+    ]
+  },
+  {
+    "id": 1664447197332,
+    "author": "박성희",
+    "title": "테스트",
+    "date": "2022-09-29",
+    "content": "테스트",
+    "image": null,
+    "favorite": [
+      "Kams",
+      "user"
+    ]
+  },
+  {
+    "id": 1664447365679,
+    "author": "Kams",
+    "title": "테스트",
+    "date": "2022-09-29",
+    "content": "테스트111",
+    "image": null,
+    "favorite": [
+      "Kams",
+      "user",
+      "박성희"
+    ]
+  }
+]
