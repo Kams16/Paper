@@ -13,6 +13,7 @@ const simpleQuery = require('./server/database/simpleQuery');
 
 global.__maindir = __dirname;
 const app = express();
+app.listen(process.env.PORT||8080);
 
 // 업로드 이미지 저장 폴더: upload
 app.set('IMAGE_PATH', 'upload');
